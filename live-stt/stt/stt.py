@@ -14,7 +14,7 @@ def transcribe(
     input_file: str,
     language="en",
     model_name="tiny.en",
-) -> transcribe_return_type:
+):
     """
     Transcribes the given file. Outputs the text with other information.
 
@@ -28,6 +28,13 @@ def transcribe(
         input_file, beam_size=5, language=language)
 
     for segment in segments:
-        return transcribe_return_type(segment.text, info.language_probability, info.language,
-                                      segment.end, segment.start)
-    return transcribe_return_type("", 0.0, "", 0.0, 0.0)
+        yield segment
+        # return transcribe_return_type(segment.text, info.language_probability, info.language,
+        # segment.end, segment.start)
+    yield transcribe_return_type("", 0.0, "", 0.0, 0.0)
+
+
+if __name__ == "__main__":
+    text = transcribe("test.wav")
+    for t in text:
+        print(t)
