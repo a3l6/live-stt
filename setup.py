@@ -11,7 +11,7 @@ VERSION = '1.0.1'
 DESCRIPTION = "Simple and easy to use realtime speech to text"
 # Setting up
 setup(
-    name="live-stt",
+    name="livestt",
     version=VERSION,
     author="a3l6",
     author_email="<emen3998@gmail.com>",
