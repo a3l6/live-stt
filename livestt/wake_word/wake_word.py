@@ -12,6 +12,7 @@ classifier = pipeline(
 
 def wait(
     callback: Callable,
+    args: tuple[any] | None = None,
     wake_word="sheila",
     prob_threshold=0.5,
     chunk_length_s=2.0,
@@ -38,8 +39,11 @@ def wait(
             print(prediction)
         if prediction["label"] == wake_word:
             if prediction["score"] > prob_threshold:
-                return True
+                if args is not None:
+                    return callback(*args)
+                else:
+                    return callback()
 
 
 if __name__ == "__main__":
-    wait()
+    wait(lambda x: print(x))
