@@ -26,7 +26,7 @@ setup(
         "charset-normalizer==3.3.2",
         "coloredlogs==15.0.1",
         "ctranslate2==3.24.0",
-        "faster-whisper @ https://github.com/guillaumekln/faster-whisper/archive/refs/heads/master.tar.gz#sha256=38553e969ae3278099803636ddc23c8743ab6842e22ed0ba672196e1cdc7f225",
+        "faster-whisper==0.10.0",
         "filelock==3.13.1",
         "flatbuffers==23.5.26",
         "fsspec==2024.2.0",
