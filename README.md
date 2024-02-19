@@ -87,7 +87,7 @@ The `transcribe` function transcribes the given audio file and outputs the trans
 
 `model_name` (str): The name of the model to be used for transcription. The default is "tiny.en".
 
-his function yields a tuple with the following fields:
+This function yields a tuple with the following fields:
 
 
 `text` (str): The transcribed text.
