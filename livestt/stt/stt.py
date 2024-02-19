@@ -16,11 +16,20 @@ def transcribe(
     model_name="tiny.en",
 ):
     """
-    Transcribes the given file. Outputs the text with other information.
+    This function transcribes the given audio file and outputs the transcribed text along with other information.
 
-    :param str input_file: Filename of the audio input. Example: output.wav
-    :param str language: Language of model
-    :param str model_name: Model name. Can be tiny.en, tiny, base.en, base, small.en, small, medium.en, medium, large-v1, large-v2, large-v3, large, distil-large-v2, distil-medium.en, distil-small.en
+    Parameters:
+    input_file (str): The path to the audio file to be transcribed.
+    language (str): The language of the audio file. Default is "en" (English).
+    model_name (str): The name of the model to be used for transcription. Default is "tiny.en".
+
+    Yields:
+    transcribe_return_type: A named tuple containing the following fields:
+        text (str): The transcribed text.
+        language_probability (float): The probability of the detected language.
+        language (str): The detected language.
+        segment_end (float): The end time of the transcribed segment.
+        segment_start (float): The start time of the transcribed segment.
     """
     model = WhisperModel(model_name, device="cpu", compute_type="int8")
 
