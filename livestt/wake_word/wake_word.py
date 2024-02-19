@@ -19,6 +19,24 @@ def wait(
     stream_chunk_s=0.25,
     debug=True,
 ):
+    """
+    This function waits for a specific wake word to be detected in the audio stream.
+
+    Parameters:
+    callback (Callable): The function to be called when the wake word is detected.
+    args (tuple[any] | None): The arguments to be passed to the callback function. Default is None.
+    wake_word (str): The wake word that the function is waiting for. Default is "sheila".
+    prob_threshold (float): The probability threshold for the wake word detection. Default is 0.5.
+    chunk_length_s (float): The length of the audio chunk to be processed at a time, in seconds. Default is 2.0.
+    stream_chunk_s (float): The length of the audio stream chunk to be processed at a time, in seconds. Default is 0.25.
+    debug (bool): If True, debug information will be printed. Default is True.
+
+    Raises:
+    ValueError: If the wake word is not in the set of valid class labels.
+
+    Returns:
+    None
+    """
     if wake_word not in classifier.model.config.label2id.keys():
         raise ValueError(
             f"Wake word {wake_word} not in set of valid class labels, pick a wake word in the set {classifier.model.config.label2id.keys()}."

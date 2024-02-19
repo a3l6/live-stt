@@ -64,7 +64,7 @@ The `Recorder` class when started starts a new recorder thread where it will lis
 
 `fs` (int): The sample rate of the recording.
 
-`filename` (str): The name of the output file where the recording will be saved.
+`filename` (str): The name of the output file where the recording will be saved. **The file_ MUST currently be .wav**
 
 `listening` (bool): A flag indicating whether the recorder is currently recording.
 
@@ -99,3 +99,21 @@ his function yields a tuple with the following fields:
 `segment_end` (float): The end time of the transcribed segment.
 
 `segment_start` (float): The start time of the transcribed segment.
+
+## Examples
+For a full example, check out the example in the file `example/main.py`.
+
+## Tech stack
+
+- [Pyaudio](https://people.csail.mit.edu/hubert/pyaudio/) for recording audio.
+- [faster-whisper](https://github.com/SYSTRAN/faster-whisper) for transcription.
+- [openWakeWord](https://huggingface.co/spaces/davidscripka/openWakeWord) for wakeword detection.
+
+## Acknowledgments
+Thanks to [Kolja](https://github.com/KoljaB) for the inspiration. I couldn't figure out how to use his library so I made my own. Check this out [here](https://github.com/KoljaB/RealtimeSTT).
+
+## Contribution
+Contributions are always welcome! Open an issue or make a PR. Or just contact me on discord: @a3l6
+
+## Author(s)
+- [@a3l6](https://www.github.com/a3l6)
